@@ -1,0 +1,32 @@
+<!-- Sección de Carrusel -->
+<div class="carousel">
+  <button onclick="cambiarSlide(-1)">Anterior</button>
+  <img id="banner-img" src="producto1.jpg" alt="Banner Producto">
+  <button onclick="cambiarSlide(1)">Siguiente</button>
+</div>
+
+<!-- Botón de compra o conversión -->
+<button id="btn-comprar" onclick="simularCompra()">Comprar Producto</button>
+
+<script>
+  // Simular interacción con carrusel
+  function cambiarSlide(direccion) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'carousel_interaction',
+      slide_action: direccion > 0 ? 'siguiente' : 'anterior'
+    });
+  }
+
+  // Simular compra del embudo
+  function simularCompra() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'purchase_funnel',
+      ecommerce: {
+        transaction_id: "T_12345",
+        value: 99.99,
+        currency: "USD"
+      }
+    });
+  }
